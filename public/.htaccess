@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Разрешаем прямой доступ к статическим файлам
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Перенаправление всех остальных запросов на index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
+

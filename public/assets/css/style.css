@@ -1,0 +1,355 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5e6f0 0%, #fce4ec 50%, #f8bbd0 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Экран авторизации */
+.auth-screen {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    padding: 60px 40px;
+    box-shadow: 0 20px 60px rgba(236, 64, 122, 0.3);
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.auth-content h1 {
+    color: #e91e63;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.auth-subtitle {
+    color: #880e4f;
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    opacity: 0.8;
+}
+
+#telegram-login-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Игровой экран */
+.game-screen {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(236, 64, 122, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.game-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.game-header h1 {
+    color: #e91e63;
+    font-size: 2.2em;
+    margin: 0;
+    font-weight: 600;
+}
+
+.btn-logout {
+    background: linear-gradient(135deg, #f8bbd0 0%, #fce4ec 100%);
+    border: 2px solid #e91e63;
+    color: #e91e63;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(236, 64, 122, 0.2);
+    position: absolute;
+    right: 0;
+}
+
+.btn-logout:hover {
+    background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(236, 64, 122, 0.4);
+}
+
+.btn-logout:active {
+    transform: scale(0.95);
+}
+
+.player-name {
+    color: #880e4f;
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+.game-info {
+    margin-bottom: 30px;
+}
+
+.score {
+    display: flex;
+    justify-content: space-around;
+    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.player-score {
+    color: #e91e63;
+}
+
+.computer-score {
+    color: #c2185b;
+}
+
+/* Игровое поле */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.cell {
+    aspect-ratio: 1;
+    background: white;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(236, 64, 122, 0.2);
+    border: 3px solid transparent;
+}
+
+.cell:hover {
+    transform: scale(1.05);
+    border-color: #e91e63;
+    box-shadow: 0 6px 20px rgba(236, 64, 122, 0.4);
+}
+
+.cell:active {
+    transform: scale(0.95);
+}
+
+.cell.disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.cell.x {
+    color: #e91e63;
+}
+
+.cell.o {
+    color: #c2185b;
+}
+
+/* Статус игры */
+.game-status {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    color: #880e4f;
+    font-weight: 500;
+    min-height: 30px;
+}
+
+/* Кнопки */
+.btn-reset,
+.btn-play-again {
+    background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 25px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(236, 64, 122, 0.3);
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 300px;
+}
+
+.btn-reset:hover,
+.btn-play-again:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(236, 64, 122, 0.5);
+}
+
+.btn-reset:active,
+.btn-play-again:active {
+    transform: translateY(0);
+}
+
+/* Модальные окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #ffffff 0%, #fce4ec 100%);
+    margin: 10% auto;
+    padding: 40px;
+    border-radius: 30px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 20px 60px rgba(236, 64, 122, 0.4);
+    text-align: center;
+    position: relative;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 2em;
+    color: #e91e63;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.close-modal:hover {
+    transform: rotate(90deg);
+}
+
+.modal-content h2 {
+    color: #e91e63;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.promo-code-container {
+    margin: 30px 0;
+}
+
+.promo-label {
+    color: #880e4f;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.promo-code {
+    background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);
+    color: white;
+    font-size: 2.5em;
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 15px;
+    letter-spacing: 5px;
+    box-shadow: 0 4px 15px rgba(236, 64, 122, 0.3);
+    margin: 20px 0;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    .game-board {
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .cell {
+        font-size: 3em;
+    }
+    
+    .game-header h1 {
+        font-size: 1.8em;
+    }
+    
+    .header-top {
+        gap: 10px;
+    }
+    
+    .btn-logout {
+        width: 40px;
+        height: 40px;
+        font-size: 1.3em;
+    }
+    
+    .auth-content h1 {
+        font-size: 2em;
+    }
+    
+    .modal-content {
+        padding: 30px 20px;
+    }
+    
+    .promo-code {
+        font-size: 2em;
+        letter-spacing: 3px;
+    }
+}
+
