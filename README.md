@@ -145,8 +145,8 @@
 
 <br>
   <div align="center">
-   <img src="readme/win_message.png" width="45%" height="300px" align="left">
-   <img src="readme/tg_messages.png" height="300px" width="45%">
+   <img src="readme/win_message.png" width="40%"  align="left">
+   <img src="readme/tg_messages.png" width="40%">
   </div>
 <br><br>
 
